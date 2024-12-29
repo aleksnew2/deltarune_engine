@@ -1,12 +1,14 @@
 package system
 
-import "golang.org/x/sys/unix"
+import "github.com/shirou/gopsutil/mem"
 
+// GetRAMSize returns the total amount of RAM installed in the system in gigabytes (GB).
+// It uses the system's virtual memory information to calculate the total RAM.
+// The function will panic if it fails to retrieve the memory information.
 func GetRAMSize() uint64 {
-	var stats unix.Sysinfo_t
-	err := unix.Sysinfo(&stats)
+	v, err := mem.VirtualMemory()
 	if err != nil {
 		panic(err)
 	}
-	return stats.Totalram * uint64(stats.Unit) / (1024 * 1024 * 1024)
+	return v.Total / (1024 * 1024 * 1024)
 }
