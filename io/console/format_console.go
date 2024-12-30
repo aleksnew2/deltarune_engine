@@ -4,9 +4,33 @@ package console
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/aleksnew2/deltarune_engine/io/console/message"
 	"github.com/aleksnew2/deltarune_engine/utils"
 )
+
+func hasSuffixAndPrefix(char string, str string) bool {
+	return strings.HasPrefix(str, char) && strings.HasSuffix(str, char)
+}
+
+func formatStyle(args ...any) []string {
+	var buf []string
+	for _, v := range args {
+		str := utils.ConvertAnyIntoString(v)
+		if hasSuffixAndPrefix("**", str) {
+			buf = append(buf, "\033[1m"+str+"\033[0m")
+		} else if hasSuffixAndPrefix("__", str) {
+			buf = append(buf, "\033[4m"+str+"\033[0m")
+		} else if hasSuffixAndPrefix("~", str) {
+			buf = append(buf, "\033[3m"+str+"\033[0m")
+		} else {
+			buf = append(buf, str)
+		}
+	}
+
+	return buf
+}
 
 func formatExceptionCode(settings Settings, error_code int32) string {
 	if settings.IsWithExceptionCode {
