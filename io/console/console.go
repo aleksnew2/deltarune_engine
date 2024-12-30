@@ -4,11 +4,31 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/aleksnew2/deltarune_engine/exception"
 	"github.com/aleksnew2/deltarune_engine/io/console/message"
 )
 
+// Console represents a console with specific settings.
 type Console struct {
 	Settings Settings
+}
+
+// InitConsole initializes and returns a new Console instance with default settings.
+// The default settings are:
+//
+// 	- IsWithTimestamp: false
+//  - IsWithExceptionCode: true
+//  - ErrorExceptions: an empty slice of exceptions
+//  - TerminateOnError: false
+func InitConsole() Console {
+	return Console{
+		Settings: Settings{
+			IsWithTimestamp:     false,
+			IsWithExceptionCode: true,
+			ErrorExceptions:     make([]exception.Exception, 0),
+			TerminateOnError:    false,
+		},
+	}
 }
 
 // Log prints the provided arguments to the console with the specified settings and message type.
