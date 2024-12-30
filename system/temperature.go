@@ -1,6 +1,8 @@
 package system
 
 import (
+	"strconv"
+
 	"github.com/aleksnew2/deltarune_engine/exception"
 
 	"github.com/shirou/gopsutil/host"
@@ -23,4 +25,16 @@ func GetCurrentTemperature() (float64, error) {
 	}
 
 	return temperature, nil
+}
+
+// ConvertTemperatureIntoString retrieves the current temperature and converts it into a string representation.
+// It returns the temperature as a string and any error encountered during the process.
+// If an error occurs while getting the temperature, it wraps the error in an exception with code -1.
+func ConvertTemperatureIntoString() (string, error) {
+	temperature, err := GetCurrentTemperature();
+	if err != nil {
+	  return "", exception.CreateException(-1, err.Error())
+	}
+
+	return strconv.Itoa(int(temperature)), nil
 }
