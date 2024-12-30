@@ -20,7 +20,7 @@ type Console struct {
 //  - IsWithExceptionCode: true
 //  - ErrorExceptions: an empty slice of exceptions
 //  - TerminateOnError: false
-func InitConsole() Console {
+func Init() Console {
 	return Console{
 		Settings: Settings{
 			IsWithTimestamp:     false,
