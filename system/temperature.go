@@ -31,9 +31,9 @@ func GetCurrentTemperature() (float64, error) {
 // It returns the temperature as a string and any error encountered during the process.
 // If an error occurs while getting the temperature, it wraps the error in an exception with code -1.
 func ConvertTemperatureIntoString() (string, error) {
-	temperature, err := GetCurrentTemperature();
+	temperature, err := GetCurrentTemperature()
 	if err != nil {
-	  return "", exception.CreateException(-1, err.Error())
+		return "", exception.CreateException(-1, err.Error())
 	}
 
 	return strconv.Itoa(int(temperature)), nil
