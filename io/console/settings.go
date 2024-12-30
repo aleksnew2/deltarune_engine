@@ -1,6 +1,6 @@
 package console
 
-import "deltarune_engine/exception"
+import "github.com/aleksnew2/deltarune_engine/exception"
 
 // Settings holds configuration options for the console I/O operations.
 // It includes options for timestamping, exception handling, and error termination.

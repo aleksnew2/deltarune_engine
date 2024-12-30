@@ -3,9 +3,9 @@
 package console
 
 import (
-	"deltarune_engine/io/console/message"
-	"deltarune_engine/utils"
 	"fmt"
+	"github.com/aleksnew2/deltarune_engine/io/console/message"
+	"github.com/aleksnew2/deltarune_engine/utils"
 	"strings"
 )
 

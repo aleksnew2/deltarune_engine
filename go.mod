@@ -1,4 +1,4 @@
-module deltarune_engine
+module github.com/aleksnew2/deltarune_engine
 
 go 1.23.4
 

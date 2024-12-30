@@ -1,8 +1,8 @@
 package console
 
 import (
-	"deltarune_engine/io/console/message"
 	"fmt"
+	"github.com/aleksnew2/deltarune_engine/io/console/message"
 )
 
 type Console struct {

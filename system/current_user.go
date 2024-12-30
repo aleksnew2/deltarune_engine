@@ -1,7 +1,7 @@
 package system
 
 import (
-	"deltarune_engine/exception"
+	"github.com/aleksnew2/deltarune_engine/exception"
 	"os/user"
 )
 
