@@ -36,7 +36,7 @@ func Init() Console {
 //
 // Parameters:
 //   - args: A variable number of string arguments to be logged.
-func (c Console) Log(args ...string) {
+func (c Console) Log(args ...any) {
 	fmt.Println(format(c.Settings, message.Info, args...))
 }
 
@@ -46,7 +46,7 @@ func (c Console) Log(args ...string) {
 // Parameters:
 //   - error_code: An integer error code that identifies the type of error
 //   - args: Optional variadic string arguments used to format the error message
-func (c Console) Error(error_code int32, args ...string) {
+func (c Console) Error(error_code int32, args ...any) {
 	fmt.Println(formatException(c.Settings, error_code, args...))
 
 	if c.Settings.TerminateOnError {
@@ -61,6 +61,6 @@ func (c Console) Error(error_code int32, args ...string) {
 // Parameters:
 //   - error_code: An int32 representing the error code.
 //   - args: A variadic number of string arguments to be included in the warning message.
-func (c Console) Warning(error_code int32, args ...string) {
+func (c Console) Warning(error_code int32, args ...any) {
 	fmt.Println(format(c.Settings, message.Warning, args...))
 }
