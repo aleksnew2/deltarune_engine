@@ -7,6 +7,8 @@ import "fmt"
 // It retrieves this information using various helper functions and prints it to the console.
 // If any error occurs while retrieving the information, the function will panic.
 func PrintPCInfo() {
+	RequestAdminRights()
+
 	username, err := GetCurrentUserName()
 
 	if err != nil {
